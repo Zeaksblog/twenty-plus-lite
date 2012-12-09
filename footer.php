@@ -34,7 +34,7 @@
 			<?php do_action( 'twentytwelve_credits' ); ?>
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentytwelve' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentytwelve' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'twentytwelve' ), 'WordPress' ); ?></a>
 			
-			<span class="credits"><a href="http://wp.me/pIhT9-24G" title="Twelve Plus Lite" target="_blank">Twelve Plus Lite</a></span>
+			<span class="credits"><a href="http://wp.me/pIhT9-24G" title="Twelve Plus Lite 1.1" target="_blank">Twelve Plus Lite 1.1</a></span>
 				<br>
 			
 		</div><!-- .site-info -->

@@ -32,14 +32,11 @@
 		</h1>						
 		<?php endif; // is_single() ?>
 
-		<?php if ( comments_open() ) : ?>
-			<div class="comments-link">
-				<span>
-					<?php comments_popup_link(); ?>
-				</span>
-			</div>
-		<?php endif; // comments_open() ?>
-		<div style="clear:both";>
+			<?php if ( comments_open() ) : ?>
+				<div class="comments-link">
+					<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'twentytwelve' ) . '</span>', __( '1 Reply', 'twentytwelve' ), __( '% Replies', 'twentytwelve' ) ); ?>
+				</div><!-- .comments-link -->
+			<?php endif; // comments_open() ?>
 	</header><!-- .entry-header -->
 			<!-- Excerpt switch -->
 		<?php
@@ -71,6 +68,7 @@
 		<footer class="entry-meta">
 			<?php twentytwelve_entry_meta(); ?>
 			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
+
 			<?php if ( is_singular() && get_the_author_meta( 'description' ) && is_multi_author() ) : // If a user has filled out their description and this is a multi-author blog, show a bio on their entries. ?>
 				<div class="author-info">
 					<div class="author-avatar">

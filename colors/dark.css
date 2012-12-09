@@ -37,6 +37,9 @@ article.format-aside .aside {
     background: none repeat scroll 0 0 #CCCCCC;
     border-left: 22px solid #333333;
 }
+.entry-header .comments-link a:hover, .entry-content a:hover, footer.entry-meta a:hover, a.comment-reply-link:hover, a.comment-edit-link:hover { 
+	color: #CCCCCC;
+}
 .entry-title a:hover {
 	text-decoration:underline;
 }
@@ -64,7 +67,27 @@ article.format-aside .aside {
 .archive-title, .page-title {
 	color: #DDDDDD;
 }
-/* custom template thumbnail */
+
+/* Images */
+.wp-caption {
+	background: #2c2c2c;
+}
+.wp-caption .wp-caption-text {
+	color: #999;
+}
+.wp-caption .wp-caption-text:before {
+	color: #999;
+}
+/* Image borders */
+img[class*="wp-image-"],
+#content .gallery .gallery-icon img{
+	border-color: #000000;
+	background: #222222;
+}
+.wp-caption img {
+	border-color: #222222;
+	background: #0f0f0f;
+}
 .post-excerpt-thumb img{
     border: 1px solid;
 	border-color: #000000;
@@ -85,30 +108,6 @@ article.format-aside .aside {
 	        box-shadow: 0px 0px 5px   #222222;
 }
 
-.theme-default .nivoSlider {
-    -webkit-box-shadow: 0px 1px 5px 0px #4a4a4a;
-		-moz-box-shadow: 0px 1px 5px 0px #4a4a4a;
-			box-shadow: 0px 1px 5px 0px #4a4a4a;
-}
-/* Images */
-.wp-caption {
-	background: #2c2c2c;
-}
-.wp-caption .wp-caption-text {
-	color: #999;
-}
-.wp-caption .wp-caption-text:before {
-	color: #999;
-}
-/* Image borders */
-img[class*="wp-image-"],
-#content .gallery .gallery-icon img {
-	border-color: #000000;
-	background: #222222;
-}
-.wp-caption img {
-	border-color: #2c2c2c;
-}
 a:focus img[class*="wp-image-"],
 a:hover img[class*="wp-image-"],
 a:active img[class*="wp-image-"] {
@@ -123,19 +122,40 @@ a:active img[class*="wp-image-"] {
 }
 /* =Menu
 ----------------------------------------------- */
-.main-navigation ul.nav-menu, .main-navigation div.nav-menu > ul {
-	border-color: #222222;
+@media screen and (min-width: 600px) {
+	.main-navigation ul.nav-menu, .main-navigation div.nav-menu > ul {
+		border-color: #222222;
+	}
+	.main-navigation a:hover {
+		color: #efefef !important;
+	}
+	.main-navigation li ul li a {
+		background: #333333 !important;
+		border-color: #222222;
+	}
+	.main-navigation li a {
+		color: #cdcdcd !important;
+		}
 }
+.main-navigation .toggled-on a {
+	color: #EEEEEE;
+}
+/* IE fix for menu */
 
-.main-navigation a:hover {
+.ie .main-navigation a:hover {
 	color: #efefef !important;
 }
-.main-navigation li ul li a {
-    background: #333 !important;
-    border-color: #222;
+.ie .main-navigation li ul li a {
+	background: #333333 !important;
+	border-color: #222222;
 }
-.main-navigation li a {
-    color: #cdcdcd !important;
+.ie .main-navigation li a {
+	color: #cdcdcd !important;
+}
+.ie .main-navigation ul.nav-menu,.ie .main-navigation div.nav-menu > ul {
+	border-top: 1px solid #222222 !important;
+	border-bottom: 1px solid #222222 !important;
+
 }
 /* Password Protected Posts */
 .post-password-required input[type=password] {
@@ -287,6 +307,10 @@ li.bypostauthor cite span {
 .commentlist .avatar {
     border-radius: 3px 3px 3px 3px;
 }
+/* IE7 respond text area width fix */
+.ie7 #respond form input[type="text"],.ie7  #respond form textarea {
+    max-width: 95%;
+}
 /*	Wp-PageNavi CSS3 style */
 .wp-pagenavi a,.wp-pagenavi span.current,.wp-pagenavi span.pages {
 	background: rgb(255,255,255);
@@ -328,6 +352,10 @@ li.bypostauthor cite span {
 	-moz-border-radius: 3px ;
 	border-radius: 3px 3px 3px 3px ;
  	text-shadow: 1px 1px 1px #000 ;
+	background: -moz-linear-gradient(#111111, #222222);
+	background: -o-linear-gradient(#111111, #222222);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#111111), to(#222222)); /* older webkit syntax */
+	background: -webkit-linear-gradient(#111111, #222222);
 }
 .wp-pagenavi a:hover, .wp-pagenavi span.current {
 	border-color: #000 ;
@@ -345,6 +373,7 @@ li.bypostauthor cite span {
 footer.entry-meta {
     line-height: 26px;
 }
+#forum_register a, #forum_register a,
 .read-more a {
 	text-decoration: none;
 	padding: 2px 5px;
@@ -354,9 +383,13 @@ footer.entry-meta {
 	-webkit-border-radius: 3px 3px 3px 3px;
 	-moz-border-radius: 3px 3px 3px 3px;
 	border-radius: 3px 3px 3px 3px ;
- 	text-shadow: 1px 1px 1px #000000;
+ 	text-shadow: none;
+	background: -moz-linear-gradient(#111111, #222222);
+	background: -o-linear-gradient(#111111, #222222);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#111111), to(#222222)); /* older webkit syntax */
+	background: -webkit-linear-gradient(#111111, #222222);
 }
-.read-more a:hover  {
+.read-more a:hover{
 	text-decoration: none;
 	border-color: #000000;
 	color: #EFEFEF !important;
@@ -365,26 +398,10 @@ footer.entry-meta {
 	box-shadow: 0 1px 2px #000000;
 	text-shadow: none;
 }
-/* entry meta */
-a.comment-reply-link:hover , .edit-link  a:hover,.comments-link a:hover,
-.post_cats a:hover, .post_tags a:hover, .post_author a:hover, .post_date a:hover {
-	color: #999999 !important;
-	text-decoration: underline;
+.excerpt-read-more a:hover {
+	color: #EFEFEF;
 }
-.comment-reply-link a, .edit-link  a,.comments-link a,
-.post_cats a, .post_tags a, .post_author a, .post_date a{
-	text-decoration: none;
-}
-hr.style-one {
-	border: 0;
-	height: 1px;
-	background: #ccc;
-	background-image: -moz-linear-gradient(left center , #0F0F0F, #999, #0F0F0F);
-    background-image: -webkit-linear-gradient(left, #0F0F0F, #999, #0F0F0F); /* Safari 5.1+, Chrome 10+ */ 
-}
-.site-content article {
-    border-bottom: none;
-}
+
 /* post format meta fix */
 .format-image .entry-meta a {
 	background: transparent;
@@ -399,4 +416,15 @@ hr.style-one {
 .format-status .entry-header header a:hover,
 .format-aside .entry-meta a:hover {
 	color: #EFEFEF;
+}
+/* end button link effects */
+
+
+/* IE7 menu color fix */
+.ie7 .main-navigation ul.nav-menu, .ie7 .main-navigation div.nav-menu > ul {
+    background: transparent !important;
+	border: none;
+    margin-left: auto;
+    padding-left: none;
+    padding-right: none;
 }

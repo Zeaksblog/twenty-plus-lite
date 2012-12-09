@@ -1,5 +1,5 @@
 <?php
-// Load up our theme options page and related code.
+// Load up theme options page and related code.
 require( get_stylesheet_directory() . '/inc/theme-options.php' );
 
 // Change header width
@@ -73,7 +73,7 @@ function get_the_post_excerpt(){
 	$excerpt = substr($excerpt, 0, 220); // change this to whatever you like
 	$excerpt = substr($excerpt, 0, strripos($excerpt, " "));
 	$excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
-	$excerpt = '<p>'.$excerpt.' ... <span class="excerpt-read-more"><a href="' . get_permalink($post->ID) . '">Read more</a></span>';
+	$excerpt = '<p>'.$excerpt.'  <span class="excerpt-read-more"><a href="' . get_permalink($post->ID) . '">Continue Reading &raquo;</a></span>';
 return $excerpt;
 }
 
@@ -124,47 +124,4 @@ function twentytwelve_content_nav( $nav_id ) {
 		</nav><!-- #nav-above -->
 	<?php endif; ?>
 	<?php endif;
-}
-
- // Change the meta information
-function twentytwelve_entry_meta() {
-	echo "<hr class=style-one>";
-	// Translators: used between list items, there is a space after the comma.
-	$categories_list = get_the_category_list( __( ', ', 'twentytwelve' ) );
-
-	// Translators: used between list items, there is a space after the comma.
-	$tag_list = get_the_tag_list( '', __( ', ', 'twentytwelve' ) );
-
-	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a>',
-		esc_url( get_permalink() ),
-		esc_attr( get_the_time() ),
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() )
-	);
-
-	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
-		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_attr( sprintf( __( 'View all posts by %s', 'twentytwelve' ), get_the_author() ) ),
-		get_the_author()
-	);
-
-	// Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
-	$utility_text = '';
-	if ( $tag_list ) {
-		$utility_text .= __('<div class=post_cats><span>Categories:</span> %1$s</div>', 'twentytwelve' );
-		$utility_text .= __('<div class=post_tags><span>Tags:</span> %2$s</div>', 'twentytwelve' );
-	} elseif ( $categories_list ) {
-		$utility_text .= __('<div class=post_cats><span>Categories:</span> %1$s</div>', 'twentytwelve' );
-	}
-
-	$utility_text .= __('<div class=post_date><span>Date:</span> %3$s</div>', 'twentytwelve' );
-	$utility_text .= __('<div class=post_author><div><span>Author:</span> %4$s</div></div>', 'twentytwelve' );
-
-	printf(
-		$utility_text,
-		$categories_list,
-		$tag_list,
-		$date,
-		$author
-	);
 }

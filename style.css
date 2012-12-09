@@ -1,6 +1,6 @@
 /*  
 Theme Name: Twenty Plus Lite
-Version: 1.0
+Version: 1.1
 Theme URI: http://wp.me/pIhT9-24V
 Description: A child theme for Twenty Twelve
 Author: Scott Dixon
@@ -12,214 +12,203 @@ License: GNU General Public License v2
 
 /* Increase theme width to 1000px */
 footer[role="contentinfo"] {
-	max-width: 1000px;
-	max-width: 71.4285rem;
+    max-width: 1000px;
+    max-width: 71.4285rem;
 }
-@media screen and (min-width: 960px) {
-	.site {
-		max-width: 1000px;
-		max-width: 71.4285rem;
+@media screen and (min-width: 960px) { 
+    .site {
+        max-width: 1000px;
+        max-width: 71.4285rem;
+    }
+}
+.ie .site { max-width: 1000px; }
+
+ /* Align footer credits */
+@media screen and (min-width: 600px) {
+	.credits {
+		float: right;
 	}
 }
-	.ie .site {
-	max-width: 1000px;
-}
-/* Left Sidebar Layout -----*/
-@media screen and (min-width: 600px) {
-    .left-sidebar.custom-layout .site-content {
+.ie .credits { float: right; }
+ 
+ 
+/* ===[ Right Sidebar Layout ]=== */
+@media screen and (min-width: 600px) { 
+    .right-sidebar.custom-layout .widget-area {
+        clear: right;
         float: right;
+        width: 26.0417%;
     }
+	
+}
+
+/* ===[ Left Sidebar Layout ]=== */
+@media screen and (min-width: 600px) { 
+    .left-sidebar.custom-layout .site-content { float: right; }
     .left-sidebar.custom-layout .widget-area {
         float: left;
-		clear: left;
+        clear: left;
     }
 }
-/* for IE8 and IE7 */
-.ie  .left-sidebar.custom-layout .site-content {
-    float: right;
-}
-.ie .left-sidebar.custom-layout .widget-area {
+.ie .left-sidebar.custom-layout .site-content { float: right; }
+.ie  .left-sidebar.custom-layout .widget-area {
     float: left;
-}
-/* Right Sidebar Layout ----- */
-@media screen and (min-width: 600px) {
-	.right-sidebar.custom-layout .widget-area {
-		clear: right;
-		float: right;
-		width: 26.0417%;
-	}
+    clear: left;
 }
 
-/* footer widget area */
-.site-info { 
-	clear: both; 
-}
+/* ==========[ END LAYOUTS ]========== */
+
+/* ===[ Footer Widget Areas ]=== */
+.site-info { clear: both; }
 #footer-widgets {
-	width: 100%;
-	border-top: none;
-}
-#footer-widgets .widget li {
-	list-style-type: none;
-}
-.template-front-page #footer-widgets {
-	padding-top: 0;
-}
-@media screen and (min-width: 600px) {
-	#footer-widgets.three .widget {
-		float: left;
-		margin-right: 3.7%;
-		width: 30.85%;
-		clear: none;
-	}
-	#footer-widgets.three .widget + .widget + .widget {
-		margin-right: 0;
-	}
-}
-/* Hide footer widgets on alternate homepage template */
-.template-front-page #footer-widgets, .bbPress #footer-widgets { 
-	display: none; 
-}
-/* Attachment page fixes for extra layouts */
-.left-right.attachment .site-content,
-.two-right.attachment .site-content,
-.two-left.attachment .site-content,
-.attachment .site-content {
-    margin-left: auto;
     width: 100%;
+    border-top: none;
 }
-/* End Layouts ------------------- */
+    #footer-widgets .widget li { list-style-type: none; }
+.template-front-page #footer-widgets { padding-top: 0; }
+@media screen and (min-width: 600px) { 
+    #footer-widgets.three .widget {
+        float: left;
+        margin-right: 3.7%;
+        width: 30.85%;
+        clear: none;
+    }
+        #footer-widgets.three .widget + .widget + .widget { margin-right: 0; }
+}
+/* for IE8 and IE7 */
+.ie #footer-widgets.three .widget {
+    float: left;
+    margin-right: 3.7%;
+    width: 29.85%;
+    clear: none;
+}
+.ie #footer-widgets.three .widget + .widget + .widget { margin-right: 0; }
+/* Hide footer widgets Homepage Template and BBpress */
+.template-front-page #footer-widgets { display: none; }
 
-/* Misc styles -------------------------- */
+
+/* ===[ IE Homepage Template Widget fix ]=== */
+.ie .template-front-page .first.front-widgets,
+.ie .template-front-page.two-sidebars .widget-area .front-widgets {
+    float: left;
+    margin-bottom: 24px;
+    width: 51.875% ;
+}
+.ie .template-front-page .second.front-widgets { clear: right; }
+.ie .template-front-page .first.front-widgets,
+.ie .template-front-page.two-sidebars .widget-area .front-widgets + .front-widgets {
+    float: right;
+    margin: 0 0 24px;
+    width: 39.0625% ;
+}
+.ie .template-front-page.two-sidebars .widget,
+.ie .template-front-page.two-sidebars .widget:nth-child(even) { float: none; }
+.ie .template-front-page .widget-area { clear: both; }
+
+.ie .template-front-page .widget {
+    width: 100% !important;
+    border: none;
+}
+.ie .template-front-page .first.front-widgets { 
+	width: 51.875%;
+    float: left ;
+}
+.ie  .template-front-page .second.front-widgets {
+    width: 39.0625%;
+    float: right ;
+}
+/* ==========[ END FOOTER WIDGET AREAS ]========== */
+
+
+/* ===[ Misc styles ]=== */
+
+
 /* Remove the stupid focus outline */
-a:focus {
-    outline: medium none ;
-}
-/* fix for slider overlapping menu */
-.main-navigation li ul {
-	z-index: 10;
-}
-.entry-title a:hover{
-	text-decoration: underline;
-}
+a:focus { outline: medium none; }
+
+/* Fix for slider overlapping menu  */
+.main-navigation li ul { z-index: 10; }
+
+.entry-title a:hover { text-decoration: underline; }
 .entry-header .comments-link a:hover,
-.entry-content a:hover, footer.entry-meta a:hover {
+.entry-content a:hover,
+footer.entry-meta a:hover { color: #333333; }
+
+/* ===[ Hide allowed tags ]=== */
+#respond form p.form-allowed-tags { display: none; }
+
+/* Read more styles */
+.read-more a{
+    background: none repeat scroll 0 0 #EFEFEF;
+    border-radius: 2px 2px 2px 2px;
+    border: 1px solid #CCCCCC;
+    text-decoration: none;
+    padding: 2px 5px;
+    margin-top: 5px;
+}
+.read-more a:hover {
+    -webkit-box-shadow: 0 1px 1px #BBBBBB;
+    -moz-box-shadow: 0 1px 1px #BBBBBB;
+    box-shadow: 0 1px 1px #BBBBBB;
+    border-color: #686868;
     color: #333333;
 }
-/* Hide allowed tags */
-#respond form p.form-allowed-tags { display: none;}
+.excerpt-read-more a:hover { color: #333333; }
 
-/* Align footer credits */
-.credits {
-	float: right;
-}
-.read-more a, #forum_register a, #forum_register_lower a{
-	background: none repeat scroll 0 0 #EFEFEF;
-	border-radius: 2px 2px 2px 2px;
-	border: 1px solid #CCCCCC;
-	padding: 2px 5px;
-	text-decoration: none;
-	margin-top:5px;
-}
-.read-more a:hover, #forum_register a:hover, #forum_register_lower a:hover {
-	-webkit-box-shadow: 0 1px 1px #BBBBBB;
-	-moz-box-shadow: 0 1px 1px #BBBBBB;
-	box-shadow: 0 1px 1px #BBBBBB;
-	border-color: #686868;
-	color:#333333;	
-}
-/* Custom template thumbnails */
+
+/* ===[ Custom template thumbnails ]=== */
+
 .post-excerpt-thumb img {
     border: 1px solid;
-	border-color: #CFCFCF;	
-	background: #F8F8F8;
-    padding: 10px;	
-	-webkit-border-radius: 3px 3px 3px 3px;
-	-moz-border-radius: 3px 3px 3px 3px;
+    border-color: #CFCFCF;
+    background: #F8F8F8;
+    padding: 10px;  
+    -webkit-box-shadow: 0px 0px 5px  #DDDDDD;
+    -moz-box-shadow: 0px 0px 5px  #DDDDDD;
+    box-shadow: 0px 0px 5px  #DDDDDD;
 	border-radius: 3px 3px 3px 3px;
-	-webkit-box-shadow: 0px 0px 5px  #DDDDDD;
-	   -moz-box-shadow: 0px 0px 5px  #DDDDDD;
-	        box-shadow: 0px 0px 5px  #DDDDDD;
+	-moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;  
 }
-.post-excerpt-thumb img {
-	margin-top: -5px;
-}
-.post-excerpt-thumb a:hover img {
-	background: #F8F8F8;
-	-webkit-box-shadow: 0px 0px 5px  #BBBBBB;
-	   -moz-box-shadow: 0px 0px 5px  #BBBBBB;
-	        box-shadow: 0px 0px 5px  #BBBBBB;
-}
-/* Meta */
-.post_cats, .post_tags, .post_author, .post_date {
-	float: left;
-	width: 50%;
-}
-.post_cats span {
-	padding: 10px 3px 10px 24px;
-	background: url(inc/images/category.png) 0 50% no-repeat;
-}
-.post_tags span {
-	padding: 10px 3px 10px 24px;
-	background: url(inc/images/tags.png) 0 50% no-repeat;
-}
-.post_author div {
-	padding: 0 3px 0 24px;
-	background: url(inc/images/author.png) 0 50% no-repeat;
-}
-.post_date span {
-	padding: 10px 3px 10px 24px;
-	background: url(inc/images/date.png) 0 50% no-repeat;
-}
-.post_header {
-	float:left;padding-bottom:24px;
-}
-.entry-header .comments-link {
+.post-excerpt-thumb img { margin-top: -5px; }
 
+.post-excerpt-thumb a:hover img {
+    -webkit-box-shadow: 0px 0px 5px  #BBBBBB;
+    -moz-box-shadow: 0px 0px 5px  #BBBBBB;
+    box-shadow: 0px 0px 5px  #BBBBBB;
+	background: #F8F8F8;
 }
-.comments-link span{
-	padding: 0 3px 0 24px;
-	background: url(inc/images/comments.png) 0 50% no-repeat;
-}
-span.edit-link, p.edit-link{
-	padding: 0 3px 0 24px;
-	background: url(inc/images/edit.png) 0 50% no-repeat;
-}
-hr.style-one {
-	border: 0;
-	height: 1px;
-	background: #CCC;
-	background-image: -moz-linear-gradient(left center , #ffffff, #CCCCCC, #ffffff);
-	background-image: -webkit-linear-gradient(left, #FFFFFF, #CCCCCC, #FFFFFF); /* Safari 5.1+, Chrome 10+ */  
-}
-.site-content article {
-    border-bottom: none !important;
-}
-/* WP-PageNavi CSS ------------------- */
+
+/* ===[ WP-PageNavi CSS ]=== */
 .wp-pagenavi {
-	clear: both;
-	margin-bottom: 20px;
+    clear: both;
+    margin-bottom: 20px;
 }
-.wp-pagenavi a, .wp-pagenavi span {
+.wp-pagenavi a,
+.wp-pagenavi span {
 	text-decoration: none;
 	border: 1px solid #BFBFBF;
 	padding: 5px 8px;
-	margin: 2px;	
+	margin: 2px;
 }
-.wp-pagenavi span.extend { 
-	background:none;
-	border:none;
+.wp-pagenavi span.extend {
+	background: none;
+	border: none;
 }
-.wp-pagenavi a, .wp-pagenavi span.current, .wp-pagenavi span.pages {
+.wp-pagenavi a,
+.wp-pagenavi span.current,
+.wp-pagenavi span.pages {
 	background: #EFEFEF;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	border:1px solid #ccc;
+	border: 1px solid #ccc;
 }
-.wp-pagenavi a:hover,.wp-pagenavi span.current {
+.wp-pagenavi a:hover,
+.wp-pagenavi span.current {
 	-webkit-box-shadow: 0 1px 1px #666;
 	-moz-box-shadow: 0 1px 1px #666;
 	box-shadow: 0 1px 1px #666;
 	border-color: #686868;
-	color:#333333;
+	color: #333333;
 }
